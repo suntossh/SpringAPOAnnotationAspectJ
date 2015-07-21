@@ -8,8 +8,9 @@ import com.suntossh.aop.annotation.target.ProgrammarTO;
 public class Application {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 		ProgrammarTO programmarTOObject = context.getBean("ProgrammarTOBean", ProgrammarTO.class);
+		
 		programmarTOObject.code();
 		
 		programmarTOObject.compileBuildAndRunTest();
@@ -17,6 +18,6 @@ public class Application {
 		
 		programmarTOObject.refactorCodeAndTestCase();
 		
-		
+		context.close();
 	}
 }
